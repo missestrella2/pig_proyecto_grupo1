@@ -1,0 +1,30 @@
+TRABAJO EN GRUPO
+=======
+1. Crear proyecto de Django vacio
+2. Crear ambiente virtual (???)
+3. Crear repositorio en GITHUB y subir (push)
+4. Agregar colaboradores al repositorio de GITHUB.
+5. Cada colaborador debe clonar el repositorio en su PC y crear una rama. 
+6. Cada colaborador debe conectar su proyecto local con el interprete del ambiente virtual 
+
+========
+COMO DIVIDIMOS LAS TAREAS?
+
+Ideas
+
+- Cada uno una app diferente
+- Uno VIEWS, otro URLS, otro MODELS y otro la carpeta principal del proyecto
+- Otro?
+
+=======
+COMO MANEJAMOS LOS TIEMPOS?
+-Cada uno se pone su propia meta de fecha 
+-Manejamos todos la misma fecha y nos reunimos despues de esa fecha para ver como vamos
+-Usamos kanban?
+
+======
+COMO MANEJAMOS LAS DUDAS O LAS TRABAS?
+- Preguntamos en clase o en el foro
+- Cada uno googlea y se arregla para solucionar su parte
+- Nos ayudamos todos mutuamente en el grupo para encontrar soluciones 
+- Todas las anteriores XD

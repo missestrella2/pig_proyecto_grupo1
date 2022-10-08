@@ -1,0 +1,51 @@
+Sobre la base de la propuesta de Pablo (sistema crm) preparé unas líneas que pueden servir para arrancar
+
+
+Punto de entrada: ingreso del usuario (validadión) /  acceso a crear nuevo usuario
+
+Podemos crar 4 apps (somos 4, no?)
+
+app de registro de cliente: altas, modificaciones y bajas del cliente
+
+app de productos: elige productos y los asocia a un cliente
+
+app de venta: registra la venta, medio de pago, confirma venta, cancelación
+
+app de seguimiento: informacion sobre la entrega, historial de compras.
+
+
+Según se dijo el sistema tiene que tener, por lo menos, 3 crud. Aquí tendríamos:
+
+- crud en app registro: altas, bajas y modificaciones de clientes.
+
+- crud en app productos: altas, bajas y modificaciones del pedido de un cliente (un carrito!)
+
+- crud en app venta: altas, bajas y modificaciones de una venta (forma de pago, domicilio de entrega, boton de arrepentimiento)
+
+- crud en app seguimiento: aquí solo habria consulta del estado de envío (salvo que se les ocurra otra app en lugar de ésta
+que permita un manejo de crud).
+
+
+¿Por qué 4 apps con 4 cruds? Para que todos podamos hacer un crud completo. A la vez cada uno puede tener su app con 
+sus templates (cuya base de diseño definamos) y todos podamos poner en practica lo mismo.
+
+Esto también nos plantea tener un par de bases (eso estimo), una de clientes y otra de productos.
+En ese caso los accesos serían (corrijanme)
+
++ app registro: trabaja con base de clientes solamente
+
++ app productos: trabaja con base clientes y productos
+
++ app venta: trabaja con base clientes y productos
+
++ app seguimiento: trabaja con base clientes
+
+
+Bueno, una pequeña idea para arrancar. Se escuchan comentarios. Y tal vez podemos empezar por ésta vía.
+
+
+
+
+
+
+
