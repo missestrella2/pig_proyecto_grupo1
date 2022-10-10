@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from prueba_clientes import views  #importo las vistas de "prueba clientes"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',views.index) #entra a la funcion index de las views de prueba clientes 
 ]
