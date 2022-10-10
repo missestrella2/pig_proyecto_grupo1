@@ -54,7 +54,7 @@ ROOT_URLCONF = 'pig_django_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'], #CLASE 12 con esto le digo donde buscar la carpeta templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
