@@ -16,9 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from prueba_clientes import views  #importo las vistas de "prueba clientes"
+from django.urls import include #segun clase 10 necesito importar el include para poder conectar
+                                #este archivo url con las url de las app
+#from prueba_clientes import views  #segun clase 10 asi importo las vistas de "prueba clientes"
+from prueba_clientes import views #aca importar la app que tenga el index
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.index) #entra a la funcion index de las views de prueba clientes 
+    path('prueba_clientes/',include('prueba_clientes.urls')), #asi conecto urls con el urls dentro de la app
+    path('prueba_productos/',include('prueba_productos.urls')),
+    path('',views.index), #entra a la funcion index de las views de prueba clientes 
 ]

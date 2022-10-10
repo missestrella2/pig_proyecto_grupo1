@@ -6,4 +6,8 @@ from django.http import HttpResponse # segun clase 10
 
 def index(request):
      #codigo
-     return HttpResponse("los clientes")
+     return HttpResponse("soy el index")
+
+def clientes(request):
+     #codigo
+     return HttpResponse("aca van los clientes")
