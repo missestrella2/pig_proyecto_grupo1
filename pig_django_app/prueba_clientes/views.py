@@ -20,3 +20,8 @@ def index(request):                                                #asi se carga
 def clientes(request):
      #codigo
      return HttpResponse("aca van los clientes")
+
+def pruebaherencia(request):                                                #asi se cargan los templates
+    template = loader.get_template('prueba_clientes/pruebaherencia.html')   #crea objeto template que trae alhtml
+    context = {}                     #creo context que es un diccionario
+    return HttpResponse(template.render(context,request))
