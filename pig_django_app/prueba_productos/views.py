@@ -4,6 +4,6 @@ from django.shortcuts import render
 
 from django.http import HttpResponse # segun clase 10
 
-def vista_de_productos(request):
-     #codigo
-     return HttpResponse("los productos")
+# def vista_de_productos(request):
+#      #codigo
+#      return HttpResponse("los productos")

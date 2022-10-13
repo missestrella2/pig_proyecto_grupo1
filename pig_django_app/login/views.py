@@ -10,3 +10,9 @@ from django.http import HttpResponse # segun clase 10
 #def index(request):
      #codigo
 #     return HttpResponse("soy el index")
+
+def index(request):                                                #asi se cargan los templates
+    template = loader.get_template('login/index.html')   #crea objeto template que trae a index.html
+    context = {"hoy":datetime.now}                                 #creo context que es un diccionario
+    return HttpResponse(template.render(context,request))
+

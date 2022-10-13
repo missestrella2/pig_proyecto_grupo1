@@ -19,12 +19,12 @@ from django.urls import path
 from django.urls import include #segun clase 10 necesito importar el include para poder conectar
                                 #este archivo url con las url de las app
 #from prueba_clientes import views  #segun clase 10 asi importo las vistas de "prueba clientes"
-from prueba_clientes import views #aca importar la app que tenga el index
+from login import views #aca importar la app que tenga el index
 
 
 urlpatterns = [
+    path('',views.index), #entra a la funcion index de las views
     path('admin/', admin.site.urls),
-    path('prueba_clientes/',include('prueba_clientes.urls')), #asi conecto urls con el urls dentro de la app
-    path('prueba_productos/',include('prueba_productos.urls')),
-    path('',views.index), #entra a la funcion index de las views de prueba clientes 
+    path('prueba_clientes/',include('login.urls')), #asi conecto urls con el urls dentro de la app
+ 
 ]
