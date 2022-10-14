@@ -28,7 +28,12 @@ from django.conf import settings
 
 
 urlpatterns = [
+    path('', include('clientes.urls')),
+   
+    path('', include('formas_de_pago.urls')),
+    path('', include('historial_compras.urls')),
+    path('', include('historial_ventas.urls')),
     path('', include('login.urls')),
     path('admin/', admin.site.urls),
-    path('login/',include('login.urls')), #asi conecto urls con el urls dentro de la app
+    path('',include('login.urls')), #asi conecto urls con el urls dentro de la app
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -3,6 +3,5 @@ from . import views #segun clase 10 significa: desde donde estoy importa las vis
 
 urlpatterns=[
 
-    path('',views.index,name="login") #entra a la funcion index de las views de "login"
-
+    path('formas-de-pago/',views.formas_de_pago, name="formas_de_pago"),
 ]
