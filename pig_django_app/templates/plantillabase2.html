@@ -84,10 +84,10 @@
 
 
 
-<div class="container-xxl" style="min-height:100%;">
-  <div class="row" style="min-height:100%;">
+<div class="container-xxl">
+  <div class="row">
           {% comment %} COMIENZO SIDEBAR BOOTSTRAP {% endcomment %}  
-            <div class="col-2" style="width: 280px;min-height:100%;">
+            <div class="col-2" style="width: 280px;">
             {% block linkslaterales %}
               <hr>
                   HOLA
@@ -100,13 +100,11 @@
             {% endblock %}
             </div>  
           {% comment %} FIN SIDEBAR BOOTSTRAP {% endcomment %}
-              <div class="col10" style="width: auto;">
-              CHAU
-
+            <div class="col">
                   {% block content %}
 
                   {% endblock %}
-              </div>  
+            </div>  
   </div>  {% comment %} FIN ROW {% endcomment %}
 
 </div> {% comment %} FIN CONTEINER{% endcomment %}
