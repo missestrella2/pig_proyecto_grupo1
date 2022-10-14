@@ -24,6 +24,9 @@
             footer{
                 margin-top:auto;
             }
+
+            
+
         </style>  
 <!-- fin del codigo para que el footer quede pegado abajo-->
 
@@ -81,11 +84,35 @@
 
 
 
-    {% block content %}
+<div class="container-xxl" style="min-height:100%;">
+  <div class="row" style="min-height:100%;">
+          {% comment %} COMIENZO SIDEBAR BOOTSTRAP {% endcomment %}  
+            <div class="col-2" style="width: 280px;min-height:100%;">
+            {% block linkslaterales %}
+              <hr>
+                  HOLA
+              <hr>
+                  HOLA2
+              <hr>
+                  HOLA3
+              <hr>    
+            
+            {% endblock %}
+            </div>  
+          {% comment %} FIN SIDEBAR BOOTSTRAP {% endcomment %}
+              <div class="col10" style="width: auto;">
+              CHAU
 
-    {% endblock %}
+                  {% block content %}
+
+                  {% endblock %}
+              </div>  
+  </div>  {% comment %} FIN ROW {% endcomment %}
+
+</div> {% comment %} FIN CONTEINER{% endcomment %}
 
 
+    
 
 {% comment %} COMIENZO FOOTER DE BOOTSTRAP {% endcomment %}
 <footer class="bg-primary text-center text-lg-start">
