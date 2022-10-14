@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls.static import static
 
 from django.urls import include #segun clase 10 necesito importar el include para poder conectar
                                 #este archivo url con las url de las app
@@ -22,9 +23,12 @@ from django.urls import include #segun clase 10 necesito importar el include par
 from login import views #aca importar la app que tenga el index
 
 
+from django.conf import settings
+
+
+
 urlpatterns = [
-    path('',views.index), #entra a la funcion index de las views
+    path('', include('login.urls')),
     path('admin/', admin.site.urls),
-    path('prueba_clientes/',include('login.urls')), #asi conecto urls con el urls dentro de la app
- 
-]
+    path('login/',include('login.urls')), #asi conecto urls con el urls dentro de la app
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
