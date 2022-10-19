@@ -9,6 +9,8 @@ from django.http import HttpResponse # segun clase 10
 
 def clientes(request):                                                #asi se cargan los templates
     template = loader.get_template('clientes/clientes.html')   #crea objeto template que trae a index.html
-    context = {"hoy":datetime.now}                                 #creo context que es un diccionario
+    context = {"hoy":datetime.now, "nombre": "Bienvenido/a %r" %request.GET["elnombre"] }                                 #creo context que es un diccionario
+    
     return HttpResponse(template.render(context,request))
+
 

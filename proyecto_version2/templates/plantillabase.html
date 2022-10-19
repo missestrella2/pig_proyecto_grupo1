@@ -12,26 +12,25 @@
    
    
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-<!-- codigo para que el footer quede pegado abajo-->
-        <style>
-            html{height:100%;}
-            body{
-                display:flex;
-                flex-direction: column;
-                min-height: 100%;
-            }
-            footer{
-                margin-top:auto;
-            }
-        </style>  
-<!-- fin del codigo para que el footer quede pegado abajo-->
+            <!-- codigo para que el footer quede pegado abajo-->
+                    <style>
+                        html{height:100%;}
+                        body{
+                            display:flex;
+                            flex-direction: column;
+                            min-height: 100%;
+                        }
+                        footer{
+                            margin-top:auto;
+                        }
+                    </style>  
+            <!-- fin del codigo para que el footer quede pegado abajo-->
 
-</head>
+    </head>
  
 
 
- <body> 
-
+<body> 
 <header>
 
 {% comment %} COMIENZO NAV BAR DE BOOTSTRAP {% endcomment %}
@@ -40,11 +39,19 @@
     navbar-expand-lg hace que sea responsive y que cuando el tamaño de pant sea lg cambie o colapse
     nav dark hace que la letra sea blanca porque asume que el fondo es oscuro.
     bg primary le da el color azul {% endcomment %}
-    <a class="navbar-brand" href="#">
-    {% comment %} <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt=""> {% endcomment %}
-    <img src="media/logo.jpg" width="40" height="40" class="ms-5">
-    nombre de marca
-    </a>
+ 
+   
+    {% load static %}
+    <a class="navbar-brand" href="#"><img src="{% static 'logo.jpg' %}" width="40" height="40" class="ms-5">
+    
+
+
+    {{marca|upper}}
+
+
+    
+    </a> 
+    
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -96,6 +103,8 @@
         <!-- Copyright -->
 </footer>
 {% comment %} FIN FOOTER DE BOOTSTRAP {% endcomment %}
+
+
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
