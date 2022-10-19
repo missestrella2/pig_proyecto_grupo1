@@ -1,0 +1,29 @@
+{% extends "plantillabase2.html" %}
+
+
+
+{% block titulo %}
+   Clientes
+{% endblock %}
+
+            {% block linkslaterales %}
+              <li><a href="/docs/5.2/getting-started/introduction/" class="bd-links-link d-inline-block rounded">
+                  ALTA CLIENTES</a></li>
+              <li><a href="/docs/5.2/getting-started/introduction/" class="bd-links-link d-inline-block rounded">
+                  BAJA CLIENTES</a></li>
+            <li><a href="/docs/5.2/getting-started/introduction/" class="bd-links-link d-inline-block rounded">
+                  LISTADO CLIENTES</a></li>
+   
+            
+            {% endblock %}
+
+{% block content %}
+   <p>Aca iria:<br>
+
+            En ALTa: Crud<br>
+            En baja: Crud<br>
+            En listado de clientes: <br>una tabla que se llena con un for con un buscador y filtros (ver como se hace)
+                                   <br> la tabla tendria los campos nombre, apellido, dni, fecha de nacimiento, telefono, mail
+    </p>
+{% endblock %}
+
