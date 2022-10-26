@@ -71,8 +71,8 @@
                         Clientes
                         </a>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Altas</a></li>
-                          <li><a class="dropdown-item" href="#">Bajas</a></li>
+                          <li><a class="dropdown-item" href="{% url "altacliente" %}">Altas</a></li>
+                          <li><a class="dropdown-item" href="{% url "bajacliente" %}">Bajas</a></li>
                           <li><hr class="dropdown-divider"></li>
                           <li><a class="dropdown-item" href="{% url "clientes_listado_completo" %}">Listado</a></li>
                         </ul>
@@ -83,10 +83,10 @@
                         Formas de Pago
                         </a>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Alta</a></li>
-                          <li><a class="dropdown-item" href="#">Baja</a></li>
+                          <li><a class="dropdown-item" href="{% url "altamediodepago" %}">Alta</a></li>
+                          <li><a class="dropdown-item" href="bajamediodepago">Baja</a></li>
                           <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="#">Listado</a></li>
+                          <li><a class="dropdown-item" href="{% url "formas-de-pago" %}">Listado</a></li>
                         </ul>
                       </li>
 
