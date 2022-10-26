@@ -12,8 +12,18 @@ from django.http import HttpResponse # segun clase 10
      #codigo
 #     return HttpResponse("soy el index")
 
-def formas_de_pago(request):                                                #asi se cargan los templates
-    template = loader.get_template('formas_de_pago/formas-de-pago.html')   #crea objeto template que trae a index.html
-    context = {"hoy":datetime.now}                                 #creo context que es un diccionario
+def formas_de_pago(request):                                                
+    template = loader.get_template('formas_de_pago/formas-de-pago.html')   
+    context = {"hoy":datetime.now}                                 
     return HttpResponse(template.render(context,request))
 
+def alta_medio_de_pago(request):                                                
+    template = loader.get_template('formas_de_pago/altamediodepago.html')   
+    context = {}                                                        
+    return HttpResponse(template.render(context,request))  
+
+
+def baja_medio_de_pago(request):                                                
+    template = loader.get_template('formas_de_pago/bajamediodepago.html')   
+    context = {}                                                        
+    return HttpResponse(template.render(context,request))  

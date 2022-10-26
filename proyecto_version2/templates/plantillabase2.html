@@ -67,12 +67,12 @@
               </li>
 
               <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{% url "clientes" %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="{% url "clientes_listado_completo" %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Clientes
                         </a>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="{% url "altacliente" %}">Altas</a></li>
-                          <li><a class="dropdown-item" href="{% url "bajacliente" %}">Bajas</a></li>
+                          <li><a class="dropdown-item" href="{% url "altaclientes" %}">Altas</a></li>
+                          <li><a class="dropdown-item" href="{% url "bajaclientes" %}">Bajas</a></li>
                           <li><hr class="dropdown-divider"></li>
                           <li><a class="dropdown-item" href="{% url "clientes_listado_completo" %}">Listado</a></li>
                         </ul>
@@ -83,10 +83,10 @@
                         Formas de Pago
                         </a>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="{% url "altamediodepago" %}">Alta</a></li>
-                          <li><a class="dropdown-item" href="bajamediodepago">Baja</a></li>
+                          <li><a class="dropdown-item" href="{% url "alta_medio_de_pago" %}">Alta</a></li>
+                          <li><a class="dropdown-item" href="{% url "baja_medio_de_pago" %}">Baja</a></li>
                           <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="{% url "formas-de-pago" %}">Listado</a></li>
+                          <li><a class="dropdown-item" href="{% url "formas_de_pago" %}">Listado</a></li>
                         </ul>
                       </li>
 

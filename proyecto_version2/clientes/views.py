@@ -14,13 +14,29 @@ def clientes(request):                                                #asi se ca
             #aca dentro de context crear un diccionario que despues voy a  llamar desde la template usando las llaves
     return HttpResponse(template.render(context,request))
 
+def altaclientes(request):                                                
+    template = loader.get_template('clientes/altaclientes.html')   
+    context = {}                                                        
+    return HttpResponse(template.render(context,request))  
+
+def bajaclientes(request):                                                
+    template = loader.get_template('clientes/bajaclientes.html')   
+    context = {}                                                        
+    return HttpResponse(template.render(context,request))  
+
+
+
 def clientes_listado_completo(request):                                                
     template = loader.get_template('clientes/clientes-listado-completo.html')   
-    context = {}                                                               
-    return HttpResponse(template.render(context,request))
+    context = {}                                                        
+    return HttpResponse(template.render(context,request))  
+
+
 
 def clientes_por_anio_de_alta(request,anio):
    template = loader.get_template('clientes/clientes-por-anio-de-alta.html')  
-   context = {"elanio":anio}                                
-   return HttpResponse(template.render(context,request))                                                        
+   context = {}                                                        
+   return HttpResponse(template.render(context,request))  
+
+                                          
 

@@ -2,41 +2,49 @@
 
 
 {% block content %}
-    
 
-{% comment %} FORMULARIO DE LOGIN DE BOOTSTRAP {% endcomment %}
+<div class="container-xxl">
+  <div class="row">
+    <div class="col">
+      <h2>FORMULARIO DE LOGIN DE BOOTSTRAP</h2>
 
-<h4 class="text-center my-4">Log In</h4>
+      <h4 class="text-center my-4">Log In</h4>
 
-<div class="container-xxl d-flex justify-content-center">
+      <div class="container-xxl d-flex justify-content-center">
 
-  <div class="col-3">
+        <div class="col-3">
 
-        <form action="/clientes/" method="GET">
-          <!-- Email input -->
-          <div class="form-outline mb-4">
-            <input type="name" id="form2Example1" class="form-control" name="elnombre"/>
-            <label class="form-label" for="form2Example1">Nombre</label>
-          </div>
+          <form action="/clientes/clientes-listado-completo" method="GET">
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input type="name" id="form2Example1" class="form-control" name="elnombre" />
+              <label class="form-label" for="form2Example1">Nombre</label>
+            </div>
 
-          <div class="form-outline mb-4">
-            <input type="email" id="form2Example1" class="form-control" name="mail"/>
-            <label class="form-label" for="form2Example1">Direccion de Email</label>
-          </div>
+            <div class="form-outline mb-4">
+              <input type="email" id="form2Example1" class="form-control" name="mail" />
+              <label class="form-label" for="form2Example1">Direccion de Email</label>
+            </div>
 
-          <!-- Password input -->
-          <div class="form-outline mb-4">
-            <input type="password" id="form2Example2" class="form-control" name="password"/>
-            <label class="form-label" for="form2Example2">Password</label>
-          </div>
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <input type="password" id="form2Example2" class="form-control" name="password" />
+              <label class="form-label" for="form2Example2">Password</label>
+            </div>
 
-          <!-- Submit button -->
-          <button type="submit" class="btn btn-primary btn-block mb-4">Entrar</button>
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4">Entrar</button>
 
-          </div>
+        </div>
         </form>
-  </div>
+      </div>
 
+    </div>
+
+    <div class="col">
+      <h2>FORMULARIO DE LOGIN django</h2>
+    </div>
+  </div>
 </div>
 
 {% comment %} <p>hoy es {{hoy}}</p> {% endcomment %}
