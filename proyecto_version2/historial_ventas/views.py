@@ -1,12 +1,13 @@
 
-from django.shortcuts import render #CLASE 12 necesario para usar las plantillas
-from django.template import loader #CLASE 12 necesario para usar las plantillas
-from django.http import HttpResponse #CLASE 12 necesario para usar las plantillas
-from datetime import datetime 
-
-# Create your views here.
-
-from django.http import HttpResponse # segun clase 10
+from django.shortcuts import render
+from django.template import loader
+from django.http import HttpResponse
+from datetime import datetime
+from django.http import HttpResponse
+from django.http import HttpResponseRedirect  # segun la clase de forms
+from django.shortcuts import render  # segun la clase de forms
+from .forms import HistVentForm  # segun la clase de forms
+from django import forms
 
 #def index(request):
      #codigo
@@ -17,3 +18,11 @@ def historial_ventas(request):                                                #a
     context = {"hoy":datetime.now}                                 #creo context que es un diccionario
     return HttpResponse(template.render(context,request))
 
+def histventform(request):
+    if request.method == 'POST':
+        histventform = HistVentForm(request.POST)
+        # if login_form.is_valid():
+        #     messages.info(request, "Info importante")
+    else:
+        histventform = HistVentForm()
+    return render(request, 'historial_ventas/histventform.html', {'histventform': histventform})

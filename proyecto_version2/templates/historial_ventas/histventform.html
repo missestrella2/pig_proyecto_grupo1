@@ -1,0 +1,64 @@
+{% extends "plantillabase2.html" %}
+
+{% block titulo %}
+Ventas
+{% endblock %}
+
+
+
+{% block content %}
+soy la pagina de historial de ventas 2 (con form de django)
+
+<h3>Filtrar ventas por:</h3>
+<form action="{% url 'histventform' %}" method="post">
+  {% csrf_token %}
+  <table>
+    {{ histventform.as_table }}
+  </table>
+  <input type="submit" value="Entrar">
+</form>
+
+<br>
+
+<div class="container-xxl">
+  <h3>Resultado:</h3>
+  <br>
+  <table class="table table-striped">
+    <tr>
+      <td>Fecha</td>
+      <td>Productos</td>
+      <td>Medio de pago</td>
+      <td>Tienda</td>
+      <td>Precio</td>
+      <td>Cliente</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+</div>
+
+
+
+{% endblock %}

@@ -9,13 +9,13 @@
 {% block content %}
     soy la pagina de historial de ventas
 
-        <p>Aca iria:<br>
+     <form action="{% url "histventform" %}" method="post">
+        {% csrf_token %}
+        <table>
+        {{ histventform.as_table }}
+        </table>
+        <input type="submit" value="Entrar">
+      </form>
 
-         <br>una tabla que se llena con un for con un buscador y filtros (ver como se hace)
-         <br> la tabla tendria los campos 
-         <br> la de fecha: fecha, $$$
-         <br> la de producto: producto, $$$
-         <br> la de medio de pago: medio de pago, $$$
-         <br> la de tienda fisica u online: 2 tablas una de ventas online y otra de ventas tienda fisica
-    </p>
+
 {% endblock %}
