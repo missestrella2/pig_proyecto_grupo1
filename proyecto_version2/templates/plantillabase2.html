@@ -2,17 +2,12 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
      {% load static %}
-
     <title>    {% block titulo %} {% endblock %} </title>
-
-
       <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-
-
 <!-- codigo para que el footer quede pegado abajo-->
         <style>
             html{height:100%;
@@ -30,22 +25,13 @@
 
         </style>  
 <!-- fin del codigo para que el footer quede pegado abajo-->
-
 </head>
- 
 
-
-<body> 
-
-
+<body>
 
 <header>
-
-
       <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
         <div class="container-fluid">
-
-
           {% load static %}
           <a class="navbar-brand" href="#"><img src="{% static 'logo.jpg' %}" width="40" height="40" class="ms-5">
           
@@ -53,10 +39,6 @@
 
            
           </a> 
-
-        
-
-
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -137,21 +119,13 @@
           </div>
         </div>
       </nav> 
-
 </header>
 
-
-
-
 <div class="container-xxl mx-5 my-5">
-
-
 {% block content %}
 
 {% endblock %}
 </div>
-
-
 
 {% comment %} COMIENZO FOOTER DE BOOTSTRAP {% endcomment %}
 <footer class="bg-primary text-center text-lg-start">
@@ -167,8 +141,6 @@
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <script src="{% static 'js/popper.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
-
-
 
 </body>
 </html>

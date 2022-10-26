@@ -1,28 +1,24 @@
-from django.shortcuts import render #CLASE 12 necesario para usar las plantillas
-from django.template import loader #CLASE 12 necesario para usar las plantillas
-from django.http import HttpResponse #CLASE 12 necesario para usar las plantillas
-from datetime import datetime 
+from django.shortcuts import render
+from django.template import loader
+from django.http import HttpResponse
+from datetime import datetime
+from django.http import HttpResponse
+from django.http import HttpResponseRedirect  # segun la clase de forms
+from django.shortcuts import render  # segun la clase de forms
+from .forms import LoginForm  # segun la clase de forms
+from django import forms
 
-# Create your views here.
 
-from django.http import HttpResponse # segun clase 10
-
-#def index(request):
-     #codigo
-#     return HttpResponse("soy el index")
-
-def index(request):                                                #asi se cargan los templates
-    #template = loader.get_template('login/index.html')   #crea objeto template que trae a index.html
-    context = {"hoy":datetime.now}                                  #creo context que es un diccionario
+def index(request):
+    context = {"hoy": datetime.now}
     marca = 'Pig Crm'
-    #return HttpResponse(template.render(context,request))
+    return render(request, 'login/index.html', {"marca": marca, "context": context})
 
-    return render(request,'login/index.html',{"marca" : marca,"context":context})
-
-
-
-
-# def loginform(request):
-#      mensaje={"elnombre": request.GET["elnombre"]}
-#      return HttpResponse(mensaje)
-
+def login_form(request):
+    if request.method == 'POST':
+        login_form = LoginForm(request.POST)
+        # if login_form.is_valid():
+        #     messages.info(request, "Info importante")
+    else:
+        login_form =LoginForm()
+    return render(request, 'login/login-form.html', {'login_form': login_form})
