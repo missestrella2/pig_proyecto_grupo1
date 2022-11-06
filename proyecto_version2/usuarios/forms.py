@@ -3,22 +3,22 @@ from django import forms
 
 class UsuariosForm(forms.Form):
 
-	MEDIO_DE_PAGO_CHOICES = (
-	(1,"Efectivo"),
-	(2,"Tarjeta"),
-	(3,"Mercadopago"),
+	CARGO_CHOICES = (
+	(1,"Gerente"),
+	(2,"Encargado"),
+	(3,"Empleado de salon"),
 	)
 
-	TIENDA_CHOICES = (
-	(1,"Fisica"),
-	(2,"Online"),
-	)
+	nombre = forms.CharField(label="nombre", required=True)
+	apellido = forms.CharField(label="apellido", required=True)
+ 	email = forms.EmailField(required=True)
+ 	password = forms.PasswordInput(required=True)
+	cargo = forms.ChoiceField(label="cargo", choices=CARGO_CHOICES)
 
 	fecha_inicial =  forms.DateField(widget=forms.SelectDateWidget(years=['2020','2021','2022']))
 	fecha_final =  forms.DateField(widget=forms.SelectDateWidget(years=['2020','2021','2022']))
-	producto = forms.CharField(label="producto", required=True)
-	medio_de_pago = forms.ChoiceField(label="medio_de_pago", choices=MEDIO_DE_PAGO_CHOICES)
-	tienda_fisica_u_online = forms.ChoiceField(label="tienda", choices=TIENDA_CHOICES)
+
+
 	
 
 
