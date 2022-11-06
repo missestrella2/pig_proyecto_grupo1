@@ -35,7 +35,7 @@
           {% load static %}
           <a class="navbar-brand" href="#"><img src="{% static 'logo.jpg' %}" width="40" height="40" class="ms-5">
           
-           {{marca|upper}}
+
 
            
           </a> 
@@ -49,56 +49,41 @@
               </li>
 
               <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{% url "clientes_listado_completo" %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Clientes
                         </a>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="{% url "altaclientes" %}">Altas</a></li>
-                          <li><a class="dropdown-item" href="{% url "bajaclientes" %}">Bajas</a></li>
+                          <li><a class="dropdown-item" href="">Altas</a></li>
+                          <li><a class="dropdown-item" href="">Bajas</a></li>
                           <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="{% url "clientes_listado_completo" %}">Listado</a></li>
+                          <li><a class="dropdown-item" href="">Listado</a></li>
                         </ul>
                       </li>
               
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{% url "formas_de_pago" %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Formas de Pago
                         </a>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="{% url "alta_medio_de_pago" %}">Alta</a></li>
-                          <li><a class="dropdown-item" href="{% url "baja_medio_de_pago" %}">Baja</a></li>
+                          <li><a class="dropdown-item" href="">Alta</a></li>
+                          <li><a class="dropdown-item" href="">Baja</a></li>
                           <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="{% url "formas_de_pago" %}">Listado</a></li>
+                          <li><a class="dropdown-item" href="">Listado</a></li>
                         </ul>
                       </li>
 
                                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{% url "historial_compras" %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Historial Compras
                         </a>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="{% url "historial_compras" %}">Listado</a></li>
-                          {% comment %} <li><a class="dropdown-item" href="#">Another action</a></li> {% endcomment %}
-                          {% comment %} <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="#">Something else here</a></li> {% endcomment %}
+                          <li><a class="dropdown-item" href="">Listado</a></li>
+
                         </ul>
                       </li>
 
-                                    {% comment %} <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{% url "historial_ventas" %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Historial Ventas
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="{% url "historial_ventas" %}">Listado</a></li> {% endcomment %}
-                          {% comment %} <li><a class="dropdown-item" href="#">Another action</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="#">Something else here</a></li> </ul>{% endcomment %}
-                        
-                      </li>
-
-
                       <li class="nav-item">
-                      <a class="nav-link" href="{% url "histventform" %}">
+                      <a class="nav-link" href="">
                           Historial Ventas
                         </a>
                       </li>
@@ -109,15 +94,22 @@
                           Estadisticas
                         </a>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="{% url "estadisticas" %}">Ver Estadisticas</a></li>
-                          {% comment %} <li><a class="dropdown-item" href="#">Another action</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="#">Something else here</a></li> {% endcomment %}
+                          <li><a class="dropdown-item" href="{">Ver Estadisticas</a></li>
+
                         </ul>
                       </li>
                       
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Usuarios
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="">Listado</a></li>
+                      </li>
+
+                
                       <li class="nav-item">
-                      <a class="nav-link" href="{% url "login" %}">
+                      <a class="nav-link" href="">
                           Log Out
                         </a>
                       </li>
