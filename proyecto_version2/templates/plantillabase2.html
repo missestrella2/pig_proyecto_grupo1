@@ -72,28 +72,9 @@
                         </ul>
                       </li>
 
-                                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{% url "historial_compras" %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Historial Compras
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="{% url "historial_compras" %}">Listado</a></li>
-                          {% comment %} <li><a class="dropdown-item" href="#">Another action</a></li> {% endcomment %}
-                          {% comment %} <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="#">Something else here</a></li> {% endcomment %}
-                        </ul>
-                      </li>
+                                    
 
-                                    {% comment %} <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{% url "historial_ventas" %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Historial Ventas
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="{% url "historial_ventas" %}">Listado</a></li> {% endcomment %}
-                          {% comment %} <li><a class="dropdown-item" href="#">Another action</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="#">Something else here</a></li> </ul>{% endcomment %}
-                        
+                                                           
                       </li>
 
 
@@ -110,17 +91,26 @@
                         </a>
                         <ul class="dropdown-menu">
                           <li><a class="dropdown-item" href="{% url "estadisticas" %}">Ver Estadisticas</a></li>
-                          {% comment %} <li><a class="dropdown-item" href="#">Another action</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="#">Something else here</a></li> {% endcomment %}
+
                         </ul>
                       </li>
-                      
+
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{% url "usuarios" %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Usuarios
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{% url "usuarios" %}">Listado</a></li>
+                        </ul>
+                      </li>
+
+                                            
                       <li class="nav-item">
                       <a class="nav-link" href="{% url "login" %}">
                           Log Out
                         </a>
                       </li>
+
 
             </ul>
             

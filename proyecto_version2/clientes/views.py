@@ -38,5 +38,4 @@ def clientes_por_anio_de_alta(request,anio):
    context = {}                                                        
    return HttpResponse(template.render(context,request))  
 
-                                          
-
+   
