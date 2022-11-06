@@ -4,5 +4,7 @@ from . import views #segun clase 10 significa: desde donde estoy importa las vis
 urlpatterns=[
 
     path('usuarios/',views.usuarios,name="usuarios"),
-    path('usuarios/usuariosform',views.histventform,name="usuariosform"),
+    path('usuarios/usuariosform',views.usuariosform,name="usuariosform"),
+    path('usuarios/altausuarioform',views.altausuarioform,name="altausuarioform"),
+    path('usuarios/bajausuarioform',views.bajausuarioform,name="bajausuarioform"),
 ]

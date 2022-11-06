@@ -14,7 +14,7 @@
 
         <div class="col-3">
 
-          <form action="/clientes/clientes-listado-completo" method="GET">
+          <form action="{% url "usuariosform" %}" method="GET">
             <!-- Email input -->
             <div class="form-outline mb-4">
               <input type="name" id="form2Example1" class="form-control" name="elnombre" />
@@ -44,7 +44,7 @@
     <div class="col">
       <h2>FORMULARIO DE LOGIN django</h2>
 
-      <form action="{% url "clientes_listado_completo" %}" method="post">
+      <form action="{% url "usuariosform" %}" method="post">
         {% csrf_token %}
         <table>
         {{ login_form.as_table }}
