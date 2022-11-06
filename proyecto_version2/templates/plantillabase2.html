@@ -99,9 +99,14 @@
                         <a class="nav-link dropdown-toggle" href="{% url "usuarios" %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Usuarios
                         </a>
+                        
                         <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{% url "alta_usuario" %}">Alta</a></li>
+                          <li><a class="dropdown-item" href="{% url "baja_usuario" %}">Baja</a></li>
+                          <li><hr class="dropdown-divider"></li>
                           <li><a class="dropdown-item" href="{% url "usuarios" %}">Listado</a></li>
                         </ul>
+
                       </li>
 
                                             

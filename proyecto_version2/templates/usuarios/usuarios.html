@@ -1,0 +1,21 @@
+{% extends "plantillabase2.html" %}
+
+{% block titulo %}
+   Usuarios
+{% endblock %}
+
+
+
+{% block content %}
+    soy la pagina de Usuarios del sistema
+
+     <form action="{% url "usuariosform" %}" method="post">
+        {% csrf_token %}
+        <table>
+        {{ usuariosform.as_table }}
+        </table>
+        <input type="submit" value="Entrar">
+      </form>
+
+
+{% endblock %}
