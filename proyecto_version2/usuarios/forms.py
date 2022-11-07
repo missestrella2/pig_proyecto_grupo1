@@ -9,9 +9,9 @@ class UsuariosForm(forms.Form):
 	(3,"Empleado de salon"),
 	)
 
-	nombre = forms.CharField(label="nombre", required=True)
-	apellido = forms.CharField(label="apellido", required=True)
-	email = forms.EmailField(required=True)
+	nombre = forms.CharField(label="nombre")
+	apellido = forms.CharField(label="apellido")
+	email = forms.EmailField(label="email")
 	#password = forms.PasswordInput(required=True)
 	cargo = forms.ChoiceField(label="cargo", choices=CARGO_CHOICES)
 
@@ -19,17 +19,9 @@ class UsuariosForm(forms.Form):
 	fecha_final =  forms.DateField(widget=forms.SelectDateWidget(years=['2020','2021','2022']))
 
 class BajaUsuarioForm(forms.Form):
-	CARGO_CHOICES = (
-				(1,"Gerente"),
-				(2,"Encargado"),
-				(3,"Empleado de salon"),
-	)
-
-	nombre = forms.CharField(label="nombre", required=True)
-	apellido = forms.CharField(label="apellido", required=True)
 	email = forms.EmailField(required=True)
-	#password = forms.PasswordInput(required=True)
-	cargo = forms.ChoiceField(label="cargo", choices=CARGO_CHOICES)
+	password = forms.CharField(label="password", required=True)
+
 
 class AltaUsuarioForm(forms.Form):
 	CARGO_CHOICES = (

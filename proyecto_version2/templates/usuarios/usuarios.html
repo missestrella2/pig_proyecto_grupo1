@@ -1,1 +1,21 @@
-hola estoy vacio. soy usuarios.html
+{% extends "plantillabase2.html" %}
+
+{% block titulo %}
+USuarios del sistema
+{% endblock %}
+
+
+
+{% block content %}
+    soy la pagina de usuarios con el form incluido
+
+     <form action="{% url "usuariosform" %}" method="post">
+        {% csrf_token %}
+        <table>
+        {{ usuariosform.as_table }}
+        </table>
+        <input type="submit" value="Entrar">
+      </form>
+
+
+{% endblock %}
