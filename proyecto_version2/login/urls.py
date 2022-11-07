@@ -6,6 +6,6 @@ from django import forms
 urlpatterns=[
 
     path('',views.index,name="index"), 
-    path('/indexform',views.indexform,name="indexform"), 
+    path('indexform/',views.indexform,name="indexform"), 
    
 ]
