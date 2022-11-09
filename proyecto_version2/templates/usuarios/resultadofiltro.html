@@ -1,7 +1,7 @@
-<html>
-<body>
+{% extends "plantillabase2.html" %} 
 
-<p>Estas buscando: {{query}}</p>
+{% block content %}
+
 
 {% if usuarios %}
     <p>Usuarios encontrados: {{usuarios|length}}</p>
@@ -39,5 +39,5 @@
     <p> no se encuentra usuarios con esas caracteristicas </p>
 
 {% endif %}
-</body>
-</html>
+
+{% endblock %}
