@@ -16,6 +16,20 @@ class Usuario(models.Model):
     #fechadealta=models.DateField(verbose_name='Fecha de Alta')
     #cargo = models.ForeignKey(Cargo,default="",on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f"{self.id} - {self.apellido}, {self.nombre}"
+
+    def save(self, *args, **kwargs):
+        if self.apellido.upper() == 'MESSI':
+            raise ValueError("Messi es un maestro, no puede ser estudiante")
+        else:
+            super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        if self.apellido.upper() == 'ALMADA':
+            raise ValueError("No se puede eliminar, tiene mucho que aprender")
+        return super().delete(*args, **kwargs)
+
 
 ##############Ejemplo###########
 

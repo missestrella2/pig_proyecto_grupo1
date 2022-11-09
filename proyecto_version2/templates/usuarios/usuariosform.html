@@ -8,7 +8,7 @@ usuarios form
 {% block content %}
 
 <h3>Filtrar usuarios por:</h3>
-<form action="{% url 'resultadofiltro' %}" method="GET">
+<form action="{% url 'resultadofiltro' %}" method="POST">
   {% csrf_token %}
   <table>
     {{ usuariosform.as_table }}

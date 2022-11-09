@@ -4,12 +4,9 @@
 ALTA DE usuarios form
 {% endblock %}
 
-
-
 {% block content %}
-
 <h3>Dar de Alta Usuario</h3>
-<form action="/resultadoalta/" method="GET">
+<form action="{% url "altausuarioform" %}" method="POST">
   
  {% csrf_token %}
   <table>

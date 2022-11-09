@@ -9,7 +9,7 @@ BAJA DE usuarios form
 {% block content %}
 
 <h3>Dar de Baja Usuario</h3>
-<form action="{% url 'bajausuarioform' %}" method="post">
+<form action="{% url 'resultadobaja' %}" method="POST">
   {% csrf_token %}
   <table>
     {{ bajausuarioform.as_table }}

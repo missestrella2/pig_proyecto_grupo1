@@ -4,13 +4,13 @@
 <!-- ESTE ES UN EJEMPLO QUE FUNCIONA -->
 
 <h3>FORMULARIO COMUN</h3>
-<form action="{% url "buscar" %}" method="GET">
+<form action="{% url "buscar" %}" method="POST">
   <input type = "text" name="prd">
   <input type="submit" value="fILTRAR">
 </form>
 
 <h3>FORMULARIO DE FORMS.PY</h3>
-<form action="{% url "buscar" %}" method="GET">
+<form action="{% url "buscar" %}" method="POST">
   {% csrf_token %}
   <table>
     {{ miFormulario.as_table}}

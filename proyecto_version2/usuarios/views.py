@@ -17,6 +17,8 @@ from .forms import BajaUsuarioForm
 from .models import Articulos, Usuario
 #from .models import Cargo
 from django import forms
+from django.views import View
+from django.views.generic import ListView
 
 ####importacion de los forms de ejemplo####
 from usuarios.forms import FormularioFiltrado
@@ -26,60 +28,67 @@ from usuarios.forms import FormularioFiltrado
 #     return HttpResponse("soy el index")
 
 def usuariosform(request):
-    if request.method == 'GET':
-        usuariosform = UsuariosForm(request.GET)
+    if request.method == 'POST':
+        usuariosform = UsuariosForm(request.POST)
     else:
         usuariosform = UsuariosForm()
     return render(request, 'usuarios/usuariosform.html', {'usuariosform': usuariosform})
 
 def resultadofiltro(request):
-    if request.method == 'GET':
-        usuariosform = UsuariosForm(request.GET)
-        if usuariosform.is_valid():
-           nombre = request.GET["nombre"]
-           apellido = request.GET["apellido"]
-           email = request.GET["email"]
-           usuarios=Usuario.objects.filter(nombre__icontains=nombre,apellido__icontains=apellido,email__icontains=email) #icontains seria LIKE en sql
-           return render(request, "usuarios/resultadofiltro.html",{"usuarios":usuarios,"query":nombre,"usuariosform":usuariosform})
-
-
-  
-
-        
-
-
+    # ejemplo basado en pildoras informaticas
+    if request.method == 'POST':
+         usuariosform = UsuariosForm(request.POST)
+         if usuariosform.is_valid():
+            nombre = request.POST["nombre"]
+            apellido = request.POST["apellido"]
+            email = request.POST["email"]
+            usuarios=Usuario.objects.filter(nombre__icontains=nombre,apellido__icontains=apellido,email__icontains=email) #icontains seria LIKE en sql
+    return render(request, "usuarios/resultadofiltro.html",{"usuarios":usuarios,"query":nombre,"usuariosform":usuariosform})
+    
+    # ejemplo visto en clase aun no logro hacerlo funcionar
+    #               usuariosform = Usuario.objects.all().order_by('id') 
+    #       return render(request, "usuarios/resultadofiltro.html",{"usuariosform":usuariosform})
 
 def altausuarioform(request): 
-    #  if request.method == 'POST':
-    #     altausuarioform = AltaUsuarioForm(request.POST)
-    #     if altausuarioform.is_valid():
-    #         nombre = altausuarioform.cleaned_data['nombre']
-    #         apellido = altausuarioform.cleaned_data['apellido']
-    #         email = altausuarioform.cleaned_data['email']
-    #         password = altausuarioform.cleaned_data['password']
-    #         cargo = altausuarioform.cleaned_data['cargo']
-    #         nuevo_usuario = Usuario(nombre=nombre,apellido=apellido,email=email,password=password,cargo=cargo)
+    if request.method == 'POST':
+        altausuarioform = AltaUsuarioForm(request.POST)
+        if altausuarioform.is_valid():
+            nombre = altausuarioform.cleaned_data['nombre']
+            apellido = altausuarioform.cleaned_data['apellido']
+            email = altausuarioform.cleaned_data['email']
+            password = altausuarioform.cleaned_data['password']
+    #       cargo = altausuarioform.cleaned_data['cargo']
+            nuevo_usuario = Usuario(nombre=nombre,apellido=apellido,email=email,password=password)
+            try:
+                nuevo_usuario.save()
+            except ValueError as ve:
+                altausuarioform.add_error('apellido', str(ve))
+            else:
+                return redirect('altausuarioform')
+    else:
+        altausuarioform = AltaUsuarioForm()
+        return render(request, 'usuarios/altausuarioform.html', {'altausuarioform': altausuarioform})
+    
     #         nuevo_usuario.save()
     #         return redirect('usuariosform')
-    #  else:
-    #      altausuarioform = AltaUsuarioForm()
-     return render(request, 'usuarios/altausuarioform.html', {'altausuarioform': altausuarioform})
+    # else:
+    #     altausuarioform = AltaUsuarioForm()
+    # return render(request, 'usuarios/altausuarioform.html', {'altausuarioform': altausuarioform})
 
 def bajausuarioform(request):
     if request.method == 'POST':
-        bajausuarioform = BajaUsuarioForm(request.GET)
+        bajausuarioform = BajaUsuarioForm(request.POST)
     else:
         bajausuarioform = BajaUsuarioForm()
     return render(request, 'usuarios/bajausuarioform.html', {'bajausuarioform': bajausuarioform})
 
 def resultadoalta(request):
-        mensaje = "Se dio de alta a %r" %request.GET["nombre"]
+        mensaje = "Se dio de alta a %r" %request.POST["nombre"]
         return HttpResponse(mensaje)
 
 def resultadobaja(request):
-        mensaje=""
-        return HttpResponse(mensaje, 'usuarios/resultadobaja.html')
-
+        mensaje="Se dio de alta a %r" %request.POST["nombre"]
+        return HttpResponse(mensaje)
 
 
 
