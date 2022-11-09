@@ -7,29 +7,16 @@ ALTA DE usuarios form
 
 
 {% block content %}
-soy la pagina de ALTA DE usuarios (con form de django)
 
 <h3>Dar de Alta Usuario</h3>
-<form action="{% url 'altausuarioform' %}" method="post">
-  {% csrf_token %}
+<form action="/resultadoalta/" method="GET">
+  
+ {% csrf_token %}
   <table>
     {{ altausuarioform.as_table }}
-  </table>
+  </table> 
+ 
   <input type="submit" value="Dar de Alta">
 </form>
 
-<br>
-
-<p>
-  <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" 
-  aria-expanded="false" aria-controls="collapseExample">
-    Ver resultados
-  </a>
-</p>
-
-<div class="collapse" id="collapseExample">
-  <div class="card card-body">
-    <div class="container-xxl">
-      <h3>Resultado:</h3>
-</div></div></div>
 {% endblock %}

@@ -7,7 +7,6 @@ BAJA DE usuarios form
 
 
 {% block content %}
-soy la pagina de BAJA DE usuarios (con form de django)
 
 <h3>Dar de Baja Usuario</h3>
 <form action="{% url 'bajausuarioform' %}" method="post">
@@ -18,18 +17,4 @@ soy la pagina de BAJA DE usuarios (con form de django)
   <input type="submit" value="Dar de Baja">
 </form>
 
-<br>
-
-<p>
-  <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" 
-  aria-expanded="false" aria-controls="collapseExample">
-    Ver resultados
-  </a>
-</p>
-
-<div class="collapse" id="collapseExample">
-  <div class="card card-body">
-    <div class="container-xxl">
-      <h3>Resultado:</h3>
-</div></div></div>
 {% endblock %}

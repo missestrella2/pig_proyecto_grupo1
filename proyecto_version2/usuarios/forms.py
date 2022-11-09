@@ -1,4 +1,7 @@
 from django import forms
+from django.forms import ValidationError
+from .models import Usuario
+from .models import Cargo
 
 
 class UsuariosForm(forms.Form):
@@ -9,18 +12,16 @@ class UsuariosForm(forms.Form):
 	(3,"Empleado de salon"),
 	)
 
-	nombre = forms.CharField(label="nombre")
-	apellido = forms.CharField(label="apellido")
-	email = forms.EmailField(label="email")
-	#password = forms.PasswordInput(required=True)
-	cargo = forms.ChoiceField(label="cargo", choices=CARGO_CHOICES)
-
-	fecha_inicial =  forms.DateField(widget=forms.SelectDateWidget(years=['2020','2021','2022']))
-	fecha_final =  forms.DateField(widget=forms.SelectDateWidget(years=['2020','2021','2022']))
+	nombre = forms.CharField(label="Nombre")
+	apellido = forms.CharField(label="Apellido")
+	email = forms.EmailField(label="Email")
+	cargo = forms.ChoiceField(label="Cargo", choices=CARGO_CHOICES)
+	#fecha_inicial = forms.DateField(label="Fecha de Alta (a partir de)", widget=forms.SelectDateWidget(years=['2020','2021','2022']))
+	#fecha_final =  forms.DateField(label="Fecha de Alta",widget=forms.SelectDateWidget(years=['2020','2021','2022']))
 
 class BajaUsuarioForm(forms.Form):
-	email = forms.EmailField(required=True)
-	password = forms.CharField(label="password", required=True)
+	email = forms.EmailField(label="Email",required=True)
+	password = forms.CharField(label="Password",required=True,widget=forms.PasswordInput())
 
 
 class AltaUsuarioForm(forms.Form):
@@ -30,14 +31,19 @@ class AltaUsuarioForm(forms.Form):
 		(3,"Empleado de salon"),
 	)
 
-	nombre = forms.CharField(label="nombre", required=True)
-	apellido = forms.CharField(label="apellido", required=True)
+	nombre = forms.CharField(label="Nombre", required=True)
+	apellido = forms.CharField(label="Apellido", required=True)
 	email = forms.EmailField(required=True)
-	#password = forms.PasswordInput(required=True)
-	cargo = forms.ChoiceField(label="cargo", choices=CARGO_CHOICES)
+	password = forms.CharField(label="Password",required=True,widget=forms.PasswordInput()) # por que no me deja ponerle label y required entre los parentesis??
+	cargo = forms.ChoiceField(label="Cargo",required=True, choices=CARGO_CHOICES)
+	#fechaalta = forms.DateField(label="Fecha de Alta", widget=forms.SelectDateWidget(years=['2020','2021','2022']))
 
+	def __str__(self):
+		return f"{self.nombre}{self.apellido}{self.email}{self.password}{self.cargo}"
 
 	
+	def save(self,*args,**kwargs):
+		super().save(*args, **kwargs)	
 
 
 	#EJEMPLO DE FORMULARIO
