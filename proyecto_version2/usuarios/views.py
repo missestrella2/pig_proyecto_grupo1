@@ -15,7 +15,7 @@ from .forms import UsuariosForm  # segun la clase de forms
 from .forms import AltaUsuarioForm
 from .forms import BajaUsuarioForm
 from .models import Articulos, Usuario
-from .models import Cargo
+#from .models import Cargo
 from django import forms
 
 ####importacion de los forms de ejemplo####
@@ -26,11 +26,28 @@ from usuarios.forms import FormularioFiltrado
 #     return HttpResponse("soy el index")
 
 def usuariosform(request):
-    if request.method == 'POST':
-        usuariosform = UsuariosForm(request.POST)
+    if request.method == 'GET':
+        usuariosform = UsuariosForm(request.GET)
     else:
         usuariosform = UsuariosForm()
     return render(request, 'usuarios/usuariosform.html', {'usuariosform': usuariosform})
+
+def resultadofiltro(request):
+    if request.method == 'GET':
+        usuariosform = UsuariosForm(request.GET)
+        if usuariosform.is_valid():
+           nombre = request.GET["nombre"]
+           apellido = request.GET["apellido"]
+           email = request.GET["email"]
+           usuarios=Usuario.objects.filter(nombre__icontains=nombre,apellido__icontains=apellido,email__icontains=email) #icontains seria LIKE en sql
+           return render(request, "usuarios/resultadofiltro.html",{"usuarios":usuarios,"query":nombre,"usuariosform":usuariosform})
+
+
+  
+
+        
+
+
 
 def altausuarioform(request): 
     #  if request.method == 'POST':
@@ -63,9 +80,7 @@ def resultadobaja(request):
         mensaje=""
         return HttpResponse(mensaje, 'usuarios/resultadobaja.html')
 
-def resultadofiltro(request):
-        mensaje=""
-        return HttpResponse(mensaje, 'usuarios/resultadofiltro.html')
+
 
 
 

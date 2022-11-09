@@ -14,7 +14,6 @@ urlpatterns=[
 #ejemplo formulario
     path('usuarios/busqueda_productos/',views.busqueda_productos,name="busqueda_productos"),
     path('usuarios/buscar/',views.buscar,name="buscar"),
-    #path('usuarios/resultados_busqueda/',views.resultados_busqueda,name="resultados_busqueda"),
-
+ 
 ]
 
