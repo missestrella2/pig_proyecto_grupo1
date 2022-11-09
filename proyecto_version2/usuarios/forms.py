@@ -59,3 +59,12 @@ class AltaUsuarioForm(forms.Form):
 	# 	sitio_favorito = forms.URLField(label="sitio favorito")
 	# 	nacimiento =  forms.DateField(widget=forms.SelectDateWidget(years['2020','2021','2022']))
 	# 	torneo_favorito = forms.ChoiceField(label="Torneo Favorito", choices=TORNEO_CHOICES)
+
+
+
+########### ejeMplo ####################
+
+class FormularioFiltrado(forms.Form):
+	nombre = forms.CharField(label="Nombre",required=False)
+	seccion = forms.CharField(label="Seccion",required=False)
+	precio = forms.IntegerField(label="Precio",required=False)

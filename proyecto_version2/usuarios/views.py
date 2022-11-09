@@ -19,8 +19,7 @@ from .models import Cargo
 from django import forms
 
 ####importacion de los forms de ejemplo####
-##???????###
-
+from usuarios.forms import FormularioFiltrado
 
 #def index(request):
      #codigo
@@ -82,16 +81,39 @@ def resultadofiltro(request):
 
 #######Ejemplo formulario 2 (con base de datos)###########
 
+# def busqueda_productos(request):
+#         return render(request, 'usuarios/busqueda_productos.html')
+
+# def buscar(request):
+#     if request.GET["prd"]:
+#         #mensaje="Se dio de alta a %r" %request.GET["prd"]
+#         producto = request.GET["prd"]
+#         articulos=Articulos.objects.filter(nombre__icontains=producto) #icontains seria LIKE en sql
+#         return render(request, "usuarios/resultados_busqueda.html",{"articulos":articulos,"query":producto})
+#     else:
+#         mensaje="no has introducido nada"
+#     return HttpResponse(mensaje)
+
 def busqueda_productos(request):
-        return render(request, 'usuarios/busqueda_productos.html')
+        if request.method == 'POST':
+            miFormulario = FormularioFiltrado(request.GET)
+        else:
+            miFormulario = FormularioFiltrado()
+        return render(request, 'usuarios/busqueda_productos.html',{'miFormulario':miFormulario})
+
 
 def buscar(request):
-    if request.GET["prd"]:
-        #mensaje="Se dio de alta a %r" %request.GET["prd"]
-        producto = request.GET["prd"]
-        articulos=Articulos.objects.filter(nombre__icontains=producto) #icontains seria LIKE en sql
-        return render(request, "usuarios/resultados_busqueda.html",{"articulos":articulos,"query":producto})
+    if request.method=="GET":
+        miFormulario=FormularioFiltrado(request.GET)
+
+        if miFormulario.is_valid():
+          producto = request.GET["nombre"]
+          articulos=Articulos.objects.filter(nombre__icontains=producto) #icontains seria LIKE en sql
+          return render(request, "usuarios/resultados_busqueda.html",{"articulos":articulos,"query":producto,"miFormulario":miFormulario})
+
     else:
-        mensaje="no has introducido nada"
-    return HttpResponse(mensaje)
+        miFormulario=FormularioFiltrado()    
+
+
+
 
