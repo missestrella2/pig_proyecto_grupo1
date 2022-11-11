@@ -68,26 +68,57 @@ def altausuarioform(request):
     else:
         altausuarioform = AltaUsuarioForm()
         return render(request, 'usuarios/altausuarioform.html', {'altausuarioform': altausuarioform})
-    
-    #         nuevo_usuario.save()
-    #         return redirect('usuariosform')
-    # else:
-    #     altausuarioform = AltaUsuarioForm()
-    # return render(request, 'usuarios/altausuarioform.html', {'altausuarioform': altausuarioform})
 
-def bajausuarioform(request):
+
+def bajausuarioform(request): 
     if request.method == 'POST':
         bajausuarioform = BajaUsuarioForm(request.POST)
+        if bajausuarioform.is_valid():
+            email = bajausuarioform.cleaned_data['email']
+            password = bajausuarioform.cleaned_data['password']
+    #       cargo = altausuarioform.cleaned_data['cargo']
+            usuario_a_borrar= Usuario.objects.get(email=email,password=password)
+            try:
+                usuario_a_borrar.delete()
+            except ValueError as ve:
+                bajausuarioform.add_error('email', str(ve))
+            else:
+                return redirect('bajausuarioform')
     else:
         bajausuarioform = BajaUsuarioForm()
-    return render(request, 'usuarios/bajausuarioform.html', {'bajausuarioform': bajausuarioform})
+        return render(request, 'usuarios/bajausuarioform.html', {'bajausuarioform': bajausuarioform})
+
+
+
+
+
+#Ejemplo visto en clase con boton y parametrizado
+# def bajausuarioform(request,email_usuario): 
+# #id_usuario):
+#      try:
+#          usuario=Usuario.objects.get(email=email_usuario)
+#      except Usuario.DoesNotExist:
+#          return render(request, "usuarios/404.html")
+
+#      try:
+#          usuario.delete()
+#      except ValueError as ve:
+#          messages.error(request=request,
+#                         message="No se puede borrar al Gerente")
+#      return redirect('usuariosform')    
+
+
+
+
+##########EN EL FUTURO LOS FORMULARIOS DEBEN REDIRIGIR ACA ###########
+
 
 def resultadoalta(request):
         mensaje = "Se dio de alta a %r" %request.POST["nombre"]
         return HttpResponse(mensaje)
 
 def resultadobaja(request):
-        mensaje="Se dio de alta a %r" %request.POST["nombre"]
+        mensaje="Se dio de baja a %r" %request.POST["nombre"]
         return HttpResponse(mensaje)
 
 
@@ -105,10 +136,10 @@ def resultadobaja(request):
 
 #######Ejemplo formulario 2 (con base de datos)###########
 
-# def busqueda_productos(request):
+#def busqueda_productos(request):
 #         return render(request, 'usuarios/busqueda_productos.html')
 
-# def buscar(request):
+#def buscar(request):
 #     if request.GET["prd"]:
 #         #mensaje="Se dio de alta a %r" %request.GET["prd"]
 #         producto = request.GET["prd"]
@@ -118,25 +149,27 @@ def resultadobaja(request):
 #         mensaje="no has introducido nada"
 #     return HttpResponse(mensaje)
 
+#######Ejemplo formulario 3 (con base de datos)###########
+
 def busqueda_productos(request):
-        if request.method == 'POST':
-            miFormulario = FormularioFiltrado(request.GET)
-        else:
-            miFormulario = FormularioFiltrado()
-        return render(request, 'usuarios/busqueda_productos.html',{'miFormulario':miFormulario})
+#         if request.method == 'POST':
+#             miFormulario = FormularioFiltrado(request.GET)
+#         else:
+#             miFormulario = FormularioFiltrado()
+         return render(request, 'usuarios/busqueda_productos.html',{'miFormulario':miFormulario})
 
 
 def buscar(request):
-    if request.method=="GET":
-        miFormulario=FormularioFiltrado(request.GET)
+     if request.method=="GET":
+#         miFormulario=FormularioFiltrado(request.GET)
 
-        if miFormulario.is_valid():
-          producto = request.GET["nombre"]
-          articulos=Articulos.objects.filter(nombre__icontains=producto) #icontains seria LIKE en sql
-          return render(request, "usuarios/resultados_busqueda.html",{"articulos":articulos,"query":producto,"miFormulario":miFormulario})
+#         if miFormulario.is_valid():
+#           producto = request.GET["nombre"]
+#           articulos=Articulos.objects.filter(nombre__icontains=producto) #icontains seria LIKE en sql
+           return render(request, "usuarios/resultados_busqueda.html",{"articulos":articulos,"query":producto,"miFormulario":miFormulario})
 
-    else:
-        miFormulario=FormularioFiltrado()    
+     else:
+         miFormulario=FormularioFiltrado()    
 
 
 

@@ -21,13 +21,13 @@ class Usuario(models.Model):
 
     def save(self, *args, **kwargs):
         if self.apellido.upper() == 'MESSI':
-            raise ValueError("Messi es un maestro, no puede ser estudiante")
+            raise ValueError("No se puede crear usuarios con ese apellido")
         else:
             super().save(*args, **kwargs)
 
     def delete(self, *args, **kwargs):
-        if self.apellido.upper() == 'ALMADA':
-            raise ValueError("No se puede eliminar, tiene mucho que aprender")
+        if self.email.upper() == 'almada@gmail.com':
+            raise ValueError("No se puede eliminar al gerente")
         return super().delete(*args, **kwargs)
 
 
