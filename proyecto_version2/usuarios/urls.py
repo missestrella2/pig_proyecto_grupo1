@@ -11,12 +11,9 @@ urlpatterns=[
     # path('usuarios/resultadobaja/',views.resultadobaja,name="resultadobaja"),
     # path('usuarios/resultadofiltro/',views.resultadofiltro,name="resultadofiltro"),
 
-#ejemplo que fnciona de formulario
-    #path('usuarios/busqueda_productos/',views.busqueda_productos,name="busqueda_productos"),
-    #path('usuarios/buscar/',views.buscar,name="buscar"),
-    
-    
     path('usuarios/listadeusuarios/',views.ListaDeUsuarios.as_view(),name='listadeusuarios'),
+    path('usuarios/altausuarioform', views.altausuarioform.as_view(), name='altausuarioform'),
+    path('usuarios/bajausuarioform',views.bajausuarioform.as_view(),name="bajausuarioform"),
     path('usuarios/usuarioeditar/<int:id_usuario>',views.usuarioeditar,name='usuarioeditar'),
     path('usuarios/usuarioeliminar/<int:id_usuario>',views.usuarioeliminar,name='usuarioeliminar'),
 
