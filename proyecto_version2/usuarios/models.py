@@ -42,16 +42,3 @@ class Articulos(models.Model):
     nombre= models.CharField(max_length=100, default=" ", verbose_name='Nombre')
     seccion= models.CharField(max_length=100, default=" ", verbose_name='Seccion')
     precio=models.IntegerField()
-
-#luego de hacer makemigration y migrate, ingrese articulos entrando a terminal
-#escribi python manage.py shell_plus
-#>>> art=Articulos(nombre="mesa",seccion="deco",precio=90) 
-#>>> art.save()
-#>>> art2=Articulos(nombre="camisa",seccion="ropa",precio=50)    
-#>>> art2.save() 
-
-class Pedidos(models.Model):
-    numero=models.IntegerField()
-    fecha=models.DateField()
-    entregado=models.BooleanField()
-
