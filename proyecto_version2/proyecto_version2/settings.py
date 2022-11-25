@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'login',
     'usuarios',
+    'historial_ventas',
+    'estadisticas', 
     'django_extensions'
 ]
 

@@ -87,25 +87,3 @@ class bajausuarioform(View): #FORMULARIO DE BAJA
             return redirect('listadeusuarios')
 
         return render(request, self.template_name, {'formulario': form})
-
-# def bajausuarioform(request): 
-#      if request.method == 'POST':
-#          bajausuarioform = BajaUsuarioForm(request.POST)
-#          if bajausuarioform.is_valid():
-#              email = bajausuarioform.cleaned_data['email']
-#              password = bajausuarioform.cleaned_data['password']
-#      #       cargo = altausuarioform.cleaned_data['cargo']
-#              try:
-#                  usuario_a_borrar= Usuario.objects.get(email=email,password=password)
-#              except Usuario.DoesNotExist:
-#                  return render(request, "usuarios/404.html")
-
-#              try:
-#                  usuario_a_borrar.delete()
-#              except ValueError as ve:
-#                  bajausuarioform.add_error('email', str(ve))
-#              else:
-#                  return redirect('bajausuarioform')
-#      else:
-#          bajausuarioform = BajaUsuarioForm()
-#          return render(request, 'usuarios/bajausuarioform.html', {'bajausuarioform': bajausuarioform})

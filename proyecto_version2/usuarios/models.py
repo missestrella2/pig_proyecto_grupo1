@@ -1,7 +1,7 @@
 from django.db import models
-from ast import mod
-from email.policy import default
-from tabnanny import verbose
+#from ast import mod
+#from email.policy import default
+#from tabnanny import verbose
 from django.db import models
 
 #class Cargo(models.Model):
@@ -30,15 +30,3 @@ class Usuario(models.Model):
             raise ValueError("No se puede eliminar al gerente")
         return super().delete(*args, **kwargs)
 
-
-##############Ejemplo###########
-
-class Clientes(models.Model):
-    nombre= models.CharField(max_length=100, default=" ", verbose_name='Nombre')
-    direccion= models.CharField(max_length=100, null=True, verbose_name='Direccion')
-    email= models.EmailField(max_length=150, verbose_name='Email')
-
-class Articulos(models.Model):
-    nombre= models.CharField(max_length=100, default=" ", verbose_name='Nombre')
-    seccion= models.CharField(max_length=100, default=" ", verbose_name='Seccion')
-    precio=models.IntegerField()
