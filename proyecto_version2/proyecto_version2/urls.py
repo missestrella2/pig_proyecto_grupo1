@@ -28,10 +28,7 @@ from django.conf import settings
 
 
 urlpatterns = [
-     path('', include('clientes.urls')),
-   
-     path('', include('formas_de_pago.urls')),
-     path('', include('historial_compras.urls')),
+
      path('', include('historial_ventas.urls')),
      path('', include('login.urls')),
      path('', include('estadisticas.urls')),
