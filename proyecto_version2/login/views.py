@@ -9,12 +9,14 @@ from django.shortcuts import render  # segun la clase de forms
 from .forms import IndexForm  # segun la clase de forms
 from django import forms
 
+from django.contrib.auth.forms import AuthenticationForm
 
-def index(request):
-    context = {"hoy": datetime.now}
-    marca = 'Pig Crm'
 
-    return render(request, 'login/index.html', {"marca": marca, "context": context})
+# def index(request):
+#     context = {"hoy": datetime.now}
+#     marca = 'Pig Crm'
+
+#     return render(request, 'login/index.html', {"marca": marca, "context": context})
 
 def indexform(request):
     if request.method == 'POST':
@@ -24,3 +26,7 @@ def indexform(request):
     else:
         indexform =IndexForm()
     return render(request, 'login/indexform.html', {'indexform': indexform})
+
+def index(request):
+    form=AuthenticationForm()
+    return render(request,'login/index.html',{"form":form})
