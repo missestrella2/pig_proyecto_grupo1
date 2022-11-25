@@ -35,6 +35,7 @@ urlpatterns = [
      path('', include('historial_ventas.urls')),
      path('', include('login.urls')),
      path('', include('estadisticas.urls')),
+     path('', include('usuarios.urls')),
 
     path('admin/', admin.site.urls),
     
