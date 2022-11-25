@@ -10,6 +10,11 @@ from usuarios.models import Usuario
 from django.views import View
 from django.views.generic import ListView
 
+
+def paginaenblanco(request):
+    context = {"hoy": datetime.now}
+    return render(request, 'usuarios/paginaenblanco.html', {"context": context})
+
 class ListaDeUsuarios(ListView):
     model = Usuario 
     context_object_name = 'usuarios'
