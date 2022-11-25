@@ -14,3 +14,4 @@ def historial_compras(request):
     return HttpResponse(template.render(context,request))
 
 
+
