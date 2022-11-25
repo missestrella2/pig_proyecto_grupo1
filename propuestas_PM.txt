@@ -1,3 +1,6 @@
+ARCHIVO PROPUESTAS CREADO POR CYNTHIA. 
+
+
 TRABAJO EN GRUPO
 =======
 1. Crear proyecto de Django vacio
