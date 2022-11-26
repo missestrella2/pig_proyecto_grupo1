@@ -15,11 +15,11 @@ from django.contrib.auth.forms import AuthenticationForm
 from login.forms import IndexForm
 
 
-# def index(request):
-#     context = {"hoy": datetime.now}
-#     marca = 'Pig Crm'
+def index(request):
+    context = {"hoy": datetime.now}
+    marca = 'Pig Crm'
 
-#     return render(request, 'login/index.html', {"marca": marca, "context": context})
+    return render(request, 'login/index.html', {"marca": marca, "context": context})
 
 def indexform(request):
     if request.method == 'POST':
@@ -34,11 +34,7 @@ def paginaenblanco2(request):
     context = {"hoy": datetime.now}
     return render(request, 'login/paginaenblanco2.html', {"context": context})
 
-# def index(request):
-#     form=AuthenticationForm()
-#     return render(request,'login/index.html',{"form":form})
-
-def index(request):
+def index(request):  ########### PAGINA DE LOGIN !!! #################
     if request.method == 'POST':
         # AuthenticationForm_can_also_be_used__
         username = request.POST['username']
@@ -46,10 +42,14 @@ def index(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             form = login(request, user)
-            messages.success(request, f' Bienvenido/a {username} !!')
+            # messages.success(request, f' Bienvenido/a {username} !!')
             return redirect('paginaenblanco2')
         else:
             messages.error(request, f'Cuenta o password incorrecto, realice el login correctamente')
     
     form = AuthenticationForm()
     return render(request, 'login/index.html', {'form': form, 'title': 'Log in'})
+
+def logout_view(request):
+     logout(request)
+     return redirect('index')
