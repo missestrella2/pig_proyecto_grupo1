@@ -1,15 +1,18 @@
-from ast import Index
-from django.shortcuts import render
-from django.template import loader
-from django.http import HttpResponse
 from datetime import datetime
-from django.http import HttpResponse
-from django.http import HttpResponseRedirect  # segun la clase de forms
-from django.shortcuts import render  # segun la clase de forms
+from django.http import HttpResponseRedirect, JsonResponse  # segun la clase de forms
+#from django.shortcuts import render  # segun la clase de forms
+from django.urls import reverse
+from django.template import loader
 from .forms import IndexForm  # segun la clase de forms
-from django import forms
 
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.forms import AuthenticationForm
+#from login.models import 
+#from django.views import View
+#from django.views.generic import ListView
+from login.forms import IndexForm
 
 
 # def index(request):
@@ -27,6 +30,26 @@ def indexform(request):
         indexform =IndexForm()
     return render(request, 'login/indexform.html', {'indexform': indexform})
 
+def paginaenblanco2(request):
+    context = {"hoy": datetime.now}
+    return render(request, 'login/paginaenblanco2.html', {"context": context})
+
+# def index(request):
+#     form=AuthenticationForm()
+#     return render(request,'login/index.html',{"form":form})
+
 def index(request):
-    form=AuthenticationForm()
-    return render(request,'login/index.html',{"form":form})
+    if request.method == 'POST':
+        # AuthenticationForm_can_also_be_used__
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            form = login(request, user)
+            messages.success(request, f' Bienvenido/a {username} !!')
+            return redirect('paginaenblanco2')
+        else:
+            messages.error(request, f'Cuenta o password incorrecto, realice el login correctamente')
+    
+    form = AuthenticationForm()
+    return render(request, 'login/index.html', {'form': form, 'title': 'Log in'})
