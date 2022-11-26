@@ -92,3 +92,4 @@ class bajausuarioform(View): #FORMULARIO DE BAJA
             return redirect('listadeusuarios')
 
         return render(request, self.template_name, {'formulario': form})
+

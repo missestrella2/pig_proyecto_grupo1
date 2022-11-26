@@ -1,23 +1,41 @@
-{% extends "plantillabase.html" %}
+{% extends "plantillabase2.html" %}
 
 {% block titulo %}
-login form
+login 
 {% endblock %}
 
 
 
 {% block content %}
-soy la pagina de form de index (con form de django)
 
-<form action="{% url 'indexform' %}" method="post">
-  {% csrf_token %}
-  <table>
-    {{ indexform.as_table }}
-  </table>
-  <input type="submit" value="Entrar">
-</form>
 
-<a href={% url "paginaenblanco" %}>SALTAR LOGIN</a>
+<section class="py-5 text-center">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto pt-4">
+            <div class="col-md-12">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}" role="alert">
+                        {{message}}
+                    </div>
+                {% endfor %}
+            </div>
+
+
+            <form method="POST" style="border-radius:1%;">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                  {{ form }}
+                  <button class="btn btn-primary" type="submit"> Login</button>
+                </fieldset>
+              {% comment %} <a href="{% url 'registrarse' %}"> si no tiene una cuenta, registrese</a> {% endcomment %}
+            </form>
+
+
+        </div>
+    </div>
+</section>
+
+
 
 
 {% endblock %}

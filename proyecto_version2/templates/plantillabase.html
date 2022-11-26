@@ -35,22 +35,10 @@
 
 {% comment %} COMIENZO NAV BAR DE BOOTSTRAP {% endcomment %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    {% comment %}  
-    navbar-expand-lg hace que sea responsive y que cuando el tamaño de pant sea lg cambie o colapse
-    nav dark hace que la letra sea blanca porque asume que el fondo es oscuro.
-    bg primary le da el color azul {% endcomment %}
- 
-   
+  
     {% load static %}
     <a class="navbar-brand" href="#"><img src="{% static 'logo.jpg' %}" width="40" height="40" class="ms-5">
-    
-
-
-    {{marca|upper}}
-
-
-    
-    </a> 
+        {{marca|upper}}    </a> 
     
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>

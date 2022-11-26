@@ -7,5 +7,5 @@ urlpatterns=[
 
     path('',views.index,name="index"), 
     path('indexform/',views.indexform,name="indexform"), 
-   
+    path('paginaenblanco2/',views.paginaenblanco2,name="paginaenblanco2"), 
 ]
