@@ -36,12 +36,14 @@
             <a class="navbar-brand" href="#"><img src="{% static 'logo.jpg' %}" width="40" height="40" class="ms-5">
                 {{marca|upper}} </a>
 
-            {% if user.is_authenticated %}
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                {% if user.is_authenticated %}
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item text-white mt-2">
-                        <p>Bienvenido\a, {{ user.username }}.</p>
+                        <p class="me-5">Bienvenido\a, {{ user.username }}.</p>
                     </li>
+
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown"
@@ -58,7 +60,6 @@
                         </ul>
                     </li>
 
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -74,21 +75,36 @@
                         </ul>
                     </li>
 
+
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="{% url "histventform" %}">
-                            Historial Ventas
+                          Historial Ventas
                         </a>
-                    </li> -->
+                      </li>
+          
+          
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                          aria-expanded="false">
+                          Estadisticas
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{% url "estadisticas" %}">Ver Estadisticas</a></li>
+          
+                        </ul>
+                      </li> -->
 
-
-                    <a type="button" href="" class="btn btn-dark me-2">Cerrar Sesión</a>
-                    {% else %}
-                    <!-- <a type="button" href="{% url 'index' %}" class="btn btn-outline-primary me-2">Iniciar Sesión</a>
-                    <a type="button" href="" class="btn btn-dark">Registrarse</a> -->
-                    
                 </ul>
+                <a type="button" href="{% url "logout" %}" class="btn btn-dark me-2">Cerrar Sesión</a>
+
+                {% else %}
+                <!-- <a type="button" href="{% url 'index' %}" class="btn btn-outline-primary me-2">Iniciar Sesión</a>
+                    <a type="button" href="" class="btn btn-dark">Registrarse</a> -->
+
+
+                {% endif %}
             </div>
-            {% endif %}
+
         </div>
     </nav>
 
