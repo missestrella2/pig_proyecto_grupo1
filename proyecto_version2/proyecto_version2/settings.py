@@ -150,3 +150,7 @@ STATICFILES_FINDERS = [ #SEGUN CLASE 14
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# REGISTRATION
+LOGIN_REDIRECT_URL = "paginaenblanco"
+LOGOUT_REDIRECT_URL = "logout"
