@@ -18,7 +18,7 @@ def index(request):
 
 def logout_view(request):
      logout(request)
-     return redirect('logout2')
+     return redirect('logout')
 
 
 def paginaenblanco2(request):
